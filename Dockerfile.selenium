@@ -1,0 +1,10 @@
+FROM python:3.9
+
+RUN apt-get update && apt-get install -y chromium-driver chromium-browser
+
+WORKDIR /tests
+COPY . .
+
+RUN pip install selenium
+
+CMD ["python", "test_app.py"]
